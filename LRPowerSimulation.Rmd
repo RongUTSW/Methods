@@ -107,4 +107,14 @@ surv.data <- LRPowerSimulation(total.sample.size=160, effect.size=0.5,
 group.sample.size.ratio=1, reference.group.incidence=0.5)
 ggsurvplot(survfit(SurvObj ~ group, surv.data), surv.median.line = "hv", 
            conf.int = TRUE, pval=TRUE)
+
+surv.data <- LRPowerSimulation(total.sample.size=160, effect.size=0.8, 
+group.sample.size.ratio=1, reference.group.incidence=0.5)
+ggsurvplot(survfit(SurvObj ~ group, surv.data), surv.median.line = "hv", 
+           conf.int = TRUE, pval=TRUE)
+
+surv.data <- LRPowerSimulation(total.sample.size=160, effect.size=0.2, 
+group.sample.size.ratio=1, reference.group.incidence=0.5)
+ggsurvplot(survfit(SurvObj ~ group, surv.data), surv.median.line = "hv", 
+           conf.int = TRUE, pval=TRUE)
 ```
