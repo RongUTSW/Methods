@@ -1,0 +1,15 @@
+## install proper tool:
+conda install -c bioconda ucsc-gtftogenepred
+conda install ucsc-genepredtobed
+conda update ucsc-genepredtobed
+conda install -c bioconda/label/cf201901 ucsc-genepredtobed
+
+## this command turn gtf file to bed file:
+gtfToGenePred -genePredExt lncipedia_4_0_hg19.gtf lncipedia_4_0_hg19.genePred
+genePredToBed lncipedia_4_0_hg19.genePred lncipedia_4_0_hg19.bed
+
+## this command turn fasta file to get DNA
+bedtools getfasta -fi /project/apps_database/iGenomes/Homo_sapiens/UCSC/hg19/Sequence/WholeGenomeFasta/genome.fa -bed lncipedia_4_0_hg19.bed -fo  lncipedia_4_0_hg19.fasta -name -split -s
+
+## this command translate DNA to protein:
+getorf -sequence lncipedia_4_0_hg19.fasta -maxsize 700 -noreverse -find 1 -outseq lncipedia_4_0_hg19_orf.fasta
